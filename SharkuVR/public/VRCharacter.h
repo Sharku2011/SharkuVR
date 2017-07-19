@@ -4,12 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
-#include "DefaultVRCharacter.generated.h"
+#include "VRCharacter.generated.h"
 
 class UMotionControllerComponent;
 
 UCLASS()
-class SHARKUVR_API ADefaultVRCharacter : public ACharacter
+class SHARKUVR_API AVRCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
@@ -21,7 +21,7 @@ protected:
 
 public:
 	// Sets default values for this character's properties
-	ADefaultVRCharacter();
+	AVRCharacter();
 	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
