@@ -24,6 +24,8 @@ class SHARKUVR_API IGrabInterface
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
 
+	////// GrabInterface 선언부
+
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "GrabInterface")
 	void Grab(class AVRHand* GrabbingHand);
 
@@ -39,5 +41,6 @@ public:
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "GrabInterface")
 	void SetGlow(bool NewBool, UMaterialInterface* GlowMat = nullptr);
 	
-	
+	////// GrabInterface 선언부 끝
+
 };
