@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Interface.h"
 #include "GrabInterface.generated.h"
 
 class UMaterialInterface;
@@ -28,18 +29,23 @@ public:
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "GrabInterface")
 	void Grab(class AVRHand* GrabbingHand);
+	virtual void Grab_Implementation(class AVRHand* GrabbingHand) = 0;
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "GrabInterface")
 	void Drop();
-	
+	virtual void Drop_Implementation() = 0;
+
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "GrabInterface")
 	void InteractionOn();
+	virtual void InteractionOn_Implementation() = 0;
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "GrabInterface")
 	void InteractionOff();
+	virtual void InteractionOff_Implementation() = 0;
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "GrabInterface")
 	void SetGlow(bool NewBool, UMaterialInterface* GlowMat = nullptr);
+	virtual void SetGlow_Implementation(bool NewBool, UMaterialInterface* GlowMat = nullptr) = 0;
 	
 	////// GrabInterface 선언부 끝
 

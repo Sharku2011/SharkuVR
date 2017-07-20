@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Interface.h"
 #include "HealthPointInterface.generated.h"
 
 // This class does not need to be modified.
@@ -25,16 +26,16 @@ public:
 	////// HealthPointInterface 선언부
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "HealthPointInterface")
-		float GetCurrentHP() const;
-	//virtual float GetCurrentHP_Implementation() const;
+	float GetCurrentHP() const;
+	virtual float GetCurrentHP_Implementation() const = 0;
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "HealthPointInterface")
-		float GetMaxHP() const;
-	//virtual float GetMaxHP_Implementation() const;
+	float GetMaxHP() const;
+	virtual float GetMaxHP_Implementation() const = 0;
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "HealthPointInterface")
-		float GetPercentageHP() const;
-	//virtual float GetPercentageHP_Implementation() const;
+	float GetPercentageHP() const;
+	virtual float GetPercentageHP_Implementation() const = 0;
 
 	////// HealthPointInterface 선언부 끝
 
@@ -55,8 +56,8 @@ protected:
 	////// HealthPointInterface 선언부
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "HealthPointInterface")
-		bool ModifyHP(const float& NewHP);
-	//virtual bool ModifyHP_Implementation(const float& NewHP);
+	bool ModifyHP(const float& NewHP);
+	virtual bool ModifyHP_Implementation(const float& NewHP) = 0;
 
 	////// HealthPointInterface 선언부 끝
 
