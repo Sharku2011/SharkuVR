@@ -27,15 +27,15 @@ public:
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "HealthPointInterface")
 	float GetCurrentHP() const;
-	virtual float GetCurrentHP_Implementation() const = 0;
+	virtual float GetCurrentHP_Implementation() const { return 0.0f; };
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "HealthPointInterface")
 	float GetMaxHP() const;
-	virtual float GetMaxHP_Implementation() const = 0;
+	virtual float GetMaxHP_Implementation() const {	return 0.0f; };
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "HealthPointInterface")
 	float GetPercentageHP() const;
-	virtual float GetPercentageHP_Implementation() const = 0;
+	virtual float GetPercentageHP_Implementation() const { return 0.0f; };
 
 	////// HealthPointInterface 急攫何 场
 
@@ -57,7 +57,7 @@ protected:
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "HealthPointInterface")
 	bool ModifyHP(const float& NewHP);
-	virtual bool ModifyHP_Implementation(const float& NewHP) = 0;
+	virtual bool ModifyHP_Implementation(const float& NewHP) { return false; };
 
 	////// HealthPointInterface 急攫何 场
 
