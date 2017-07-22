@@ -53,17 +53,17 @@ bool USharkuBPFLibrary::GetBit(const int32& Bitmask, uint8 Index)
 	return (Bitmask & (1 << Index)) != 0;
 }
 
-void USharkuBPFLibrary::SetBitOn(int32& Bitmask, uint8 Index)
+void USharkuBPFLibrary::SetBitOn(UPARAM(ref) int32& Bitmask, uint8 Index)
 {
 	(Bitmask |= (1 << Index));
 }
 
-void USharkuBPFLibrary::SetBitOff(int32& Bitmask, uint8 Index)
+void USharkuBPFLibrary::SetBitOff(UPARAM(ref) int32& Bitmask, uint8 Index)
 {
 	(Bitmask &= (0 << Index));
 }
 
-void USharkuBPFLibrary::SetBit(int32& Bitmask, uint8 Index, bool NewBit)
+void USharkuBPFLibrary::SetBit(UPARAM(ref) int32& Bitmask, uint8 Index, bool NewBit)
 {
 	(NewBit) ? (SetBitOn(Bitmask, Index)) : (SetBitOff(Bitmask, Index));
 }
@@ -120,4 +120,18 @@ void USharkuBPFLibrary::GetRadialPointsForAngle(TArray<FVector>& PointsArray, co
 		PointsArray.Add(Origin + (Rot.RotateVector(FVector(X, Y, 0.0f)) * Length));
 	}
 
+}
+
+bool USharkuBPFLibrary::FCalcVarWithFlowCheck(UPARAM(ref) float& Var, const float& ModAmount, ECheckFlowResult& result)
+{
+	float CalcResult = Var + ModAmount;
+
+	return true;
+}
+
+bool USharkuBPFLibrary::CalcVarWithFlowCheck(UPARAM(ref) int& Var, const int& ModAmount, ECheckFlowResult& result)
+{
+	int CalcResult = Var + ModAmount;
+
+	return true;
 }

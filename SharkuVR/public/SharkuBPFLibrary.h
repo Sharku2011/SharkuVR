@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "SharkuVR.h"
+#include "EnumLibrary.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "SharkuBPFLibrary.generated.h"
 
@@ -53,4 +54,10 @@ class SHARKUVR_API USharkuBPFLibrary : public UBlueprintFunctionLibrary
 	
 	UFUNCTION(BlueprintCallable, Category = "SharkuBPFLibrary|Random")
 	static void Shuffle() {};
+
+	UFUNCTION(BlueprintCallable, Category = "SharkuBPFLibrary|Math", meta = (DisplayName = "CalculateWithFlowCheck(float)", ExpandEnumAsExecs = "result"))
+	static bool FCalcVarWithFlowCheck(UPARAM(ref) float& Var, const float& ModAmount, ECheckFlowResult& result);
+
+	UFUNCTION(BlueprintCallable, Category = "SharkuBPFLibrary|Math", meta = (DisplayName = "CalculateWithFlowCheck(int)", ExpandEnumAsExecs = "result"))
+	static bool CalcVarWithFlowCheck(UPARAM(ref) int& Var, const int& ModAmount, ECheckFlowResult& result);
 };
