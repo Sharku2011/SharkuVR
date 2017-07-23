@@ -141,10 +141,11 @@ bool USharkuBPFLibrary::FCalcVarWithFlowCheck(UPARAM(ref) float& Var, const floa
 			{
 				result = ECheckFlowResult::Overflow;
 			}
+			return true;
 		}
 	}
-
-	return ((uint8)result != uint8(0));
+	Var = CalcResult;
+	return false;
 }
 
 bool USharkuBPFLibrary::CalcVarWithFlowCheck(UPARAM(ref) int& Var, const int& ModAmount, ECheckFlowResult& result)
@@ -165,10 +166,11 @@ bool USharkuBPFLibrary::CalcVarWithFlowCheck(UPARAM(ref) int& Var, const int& Mo
 			{
 				result = ECheckFlowResult::Overflow;
 			}
+			return true;
 		}
 	}
-
-	return ((uint8)result != uint8(0));
+	Var = CalcResult;
+	return false;
 }
 
 bool USharkuBPFLibrary::FIsNegative(const float& Data)
