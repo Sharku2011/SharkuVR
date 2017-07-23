@@ -60,4 +60,13 @@ class SHARKUVR_API USharkuBPFLibrary : public UBlueprintFunctionLibrary
 
 	UFUNCTION(BlueprintCallable, Category = "SharkuBPFLibrary|Math", meta = (DisplayName = "CalculateWithFlowCheck(int)", ExpandEnumAsExecs = "result"))
 	static bool CalcVarWithFlowCheck(UPARAM(ref) int& Var, const int& ModAmount, ECheckFlowResult& result);
+
+	// return true when given scalar(float) is negative by LeftMost bit check
+	UFUNCTION(BlueprintPure, Category = "SharkuBPFLibrary|Math", meta = (DisplayName = "IsNegative(float)"))
+	static bool FIsNegative(const float& Data);
+
+	// return true when given scalar(int) is negative by LeftMost bit check
+	UFUNCTION(BlueprintPure, Category = "SharkuBPFLibrary|Math", meta = (DisplayName = "IsNegative(int)"))
+	static bool IsNegative(const int& Data);
+
 };

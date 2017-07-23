@@ -7,6 +7,7 @@
 #include "Visibility.h"
 #include "Kismet/KismetSystemLibrary.h"
 #include "Kismet/KismetMathLibrary.h"
+#include <bitset>
 
 
 void USharkuBPFLibrary::SetWidgetComponentActive(UObject* WorldContextObject, UWidgetComponent* WidgetComponent, bool NewActive)
@@ -134,4 +135,22 @@ bool USharkuBPFLibrary::CalcVarWithFlowCheck(UPARAM(ref) int& Var, const int& Mo
 	int CalcResult = Var + ModAmount;
 
 	return true;
+}
+
+bool USharkuBPFLibrary::FIsNegative(const float& Data)
+{
+	union FloatInt
+	{
+		float input;
+		int output;
+	} temp;
+
+	temp.input = Data;
+
+	return std::bitset<32>(temp.output).test(31);
+}
+
+bool USharkuBPFLibrary::IsNegative(const int& Data)
+{
+	return std::bitset<32>(Data).test(31);
 }
