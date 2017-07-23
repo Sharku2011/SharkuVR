@@ -127,14 +127,48 @@ bool USharkuBPFLibrary::FCalcVarWithFlowCheck(UPARAM(ref) float& Var, const floa
 {
 	float CalcResult = Var + ModAmount;
 
-	return true;
+	result = ECheckFlowResult::Pass;
+
+	if (!(FIsNegative(Var) ^ FIsNegative(ModAmount)))
+	{
+		if (FIsNegative(CalcResult) != FIsNegative(Var))
+		{
+			if (FIsNegative(CalcResult))
+			{
+				result = ECheckFlowResult::Underflow;
+			}
+			else
+			{
+				result = ECheckFlowResult::Overflow;
+			}
+		}
+	}
+
+	return ((uint8)result != uint8(0));
 }
 
 bool USharkuBPFLibrary::CalcVarWithFlowCheck(UPARAM(ref) int& Var, const int& ModAmount, ECheckFlowResult& result)
 {
 	int CalcResult = Var + ModAmount;
 
-	return true;
+	result = ECheckFlowResult::Pass;
+
+	if (!(IsNegative(Var) ^ IsNegative(ModAmount)))
+	{
+		if (IsNegative(CalcResult) != IsNegative(Var))
+		{
+			if (IsNegative(CalcResult))
+			{
+				result = ECheckFlowResult::Underflow;
+			}
+			else
+			{
+				result = ECheckFlowResult::Overflow;
+			}
+		}
+	}
+
+	return ((uint8)result != uint8(0));
 }
 
 bool USharkuBPFLibrary::FIsNegative(const float& Data)
