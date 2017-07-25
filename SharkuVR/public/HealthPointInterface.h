@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+Ôªø// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -23,7 +23,7 @@ class SHARKUVR_API IHealthPointInterface
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
 	
-	////// HealthPointInterface º±æ∫Œ
+	////// HealthPointInterface ÏÑ†Ïñ∏Î∂Ä
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "HealthPointInterface")
 	float GetCurrentHP() const;
@@ -37,7 +37,7 @@ public:
 	float GetPercentageHP() const;
 	virtual float GetPercentageHP_Implementation() const { return 0.0f; };
 
-	////// HealthPointInterface º±æ∫Œ ≥°
+	////// HealthPointInterface ÏÑ†Ïñ∏Î∂Ä ÎÅù
 
 	/*
 
@@ -53,13 +53,13 @@ public:
 	*/
 
 protected:
-	////// HealthPointInterface º±æ∫Œ
+	////// HealthPointInterface ÏÑ†Ïñ∏Î∂Ä
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "HealthPointInterface")
 	bool ModifyHP(const float& NewHP);
 	virtual bool ModifyHP_Implementation(const float& NewHP) { return false; };
 
-	////// HealthPointInterface º±æ∫Œ ≥°
+	////// HealthPointInterface ÏÑ†Ïñ∏Î∂Ä ÎÅù
 
 	
 };

@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+Ôªø// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -25,7 +25,7 @@ class SHARKUVR_API IGrabInterface
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
 
-	////// GrabInterface º±æ∫Œ
+	////// GrabInterface ÏÑ†Ïñ∏Î∂Ä
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "GrabInterface")
 	void Grab(class AVRHand* GrabbingHand);
@@ -47,6 +47,6 @@ public:
 	void SetGlow(bool NewBool, UMaterialInterface* GlowMat = nullptr);
 	virtual void SetGlow_Implementation(bool NewBool, UMaterialInterface* GlowMat = nullptr) {};
 	
-	////// GrabInterface º±æ∫Œ ≥°
+	////// GrabInterface ÏÑ†Ïñ∏Î∂Ä ÎÅù
 
 };

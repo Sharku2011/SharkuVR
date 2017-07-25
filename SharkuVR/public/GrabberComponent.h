@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -23,7 +23,7 @@ class SHARKUVR_API UGrabberComponent : public USceneComponent
 	GENERATED_BODY()
 
 public:	
-	// Interaction Signature ½ÃÀÛ
+	// Interaction Signature ì‹œì‘
 
 	UPROPERTY(BlueprintAssignable, Category = "GrabInterface")
 	FGrabberBeginInteractionSignature OnBeginInteraction;
@@ -37,7 +37,7 @@ public:
 	UPROPERTY(BlueprintAssignable, Category = "GrabInterface")
 	FGrabberDroppedSignature OnDropped;
 
-	// Interaction Signature ³¡
+	// Interaction Signature ë
 
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
 	AVRHand* GrabbingHand;
@@ -52,18 +52,18 @@ public:
 	uint32 bIsGlowing : 1;
 
 protected:
-	// ¼Õ¿¡ Áã°Ô ÇÒ Å¸°Ù ÄÄÆ÷³ÍÆ®
+	// ì†ì— ì¥ê²Œ í•  íƒ€ê²Ÿ ì»´í¬ë„ŒíŠ¸
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "GrabInterface")
 	USceneComponent* TargetComponent;
 
-	// ³ªÁß¿¡ Weapon Interface ÀÛ¾÷ÇÏ¸é¼­ Ä«Å×°í¸® º¯°æÇÒ °Í"
+	// ë‚˜ì¤‘ì— Weapon Interface ì‘ì—…í•˜ë©´ì„œ ì¹´í…Œê³ ë¦¬ ë³€ê²½í•  ê²ƒ"
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "GrabInterface")
 	float DamageMultiplier;
 
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "GrabInterface")
 	float DamageBonus;
 
-	// Àâ´Â Å¸ÀÔ
+	// ì¡ëŠ” íƒ€ì…
 	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "GrabInterface")
 	EGrabType GrabType;
 

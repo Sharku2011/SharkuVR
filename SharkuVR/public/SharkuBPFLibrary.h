@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -24,16 +24,24 @@ class SHARKUVR_API USharkuBPFLibrary : public UBlueprintFunctionLibrary
 	UFUNCTION(BlueprintCallable, meta = (WorldContext = "WorldContextObject", CallableWithoutWorldContext), Category = "SharkuBPFLibrary|Transform")
 	static bool AttachOnSurface(UObject* WorldContextObject, USceneComponent* Target, UPrimitiveComponent* BodyToAttach);
 
+	/** 인덱스는 0부터, 가장 오른쪽부터 시작 */
 	UFUNCTION(BlueprintCallable, Category = "SharkuBPFLibrary|Bitmask")
 	static bool GetBit(const int32& Bitmask, uint8 Index);
 
-	// UPARAM(ref) �� �Ķ���Ϳ� �ٿ��ָ� ��������Ʈ�� ���۷����� ���� �� ���� ȿ��. https://wiki.unrealengine.com/UPARAM ����
+	UFUNCTION(BlueprintPure, Category = "SharkuBPFLibrary|Bitmask")
+	static FString GetBitSet(const int32& Bitset);
+
+	// UPARAM(ref) 를 파라미터에 붙여주면 블루프린트의 레퍼런스로 전달 과 같은 효과. https://wiki.unrealengine.com/UPARAM 참조
+
+	/** 인덱스는 0부터, 가장 오른쪽부터 시작 */
 	UFUNCTION(BlueprintCallable, Category = "SharkuBPFLibrary|Bitmask")
 	static void SetBitOn(UPARAM(ref) int32& Bitmask, uint8 Index);
 
+	/** 인덱스는 0부터, 가장 오른쪽부터 시작 */
 	UFUNCTION(BlueprintCallable, Category = "SharkuBPFLibrary|Bitmask")
 	static void SetBitOff(UPARAM(ref) int32& Bitmask, uint8 Index);
 
+	/** 인덱스는 0부터, 가장 오른쪽부터 시작 */
 	UFUNCTION(BlueprintCallable, Category = "SharkuBPFLibrary|Bitmask")
 	static void SetBit(UPARAM(ref) int32& Bitmask, uint8 Index, bool NewBit);
 
@@ -61,12 +69,12 @@ class SHARKUVR_API USharkuBPFLibrary : public UBlueprintFunctionLibrary
 	UFUNCTION(BlueprintCallable, Category = "SharkuBPFLibrary|Math", meta = (DisplayName = "CalculateWithFlowCheck(int)", ExpandEnumAsExecs = "result"))
 	static bool CalcVarWithFlowCheck(UPARAM(ref) int& Var, const int& ModAmount, ECheckFlowResult& result);
 
-	// return true when given scalar(float) is negative by LeftMost bit check
+	/** return true when given float is negative by LeftMost bit check */
 	UFUNCTION(BlueprintPure, Category = "SharkuBPFLibrary|Math", meta = (DisplayName = "IsNegative(float)"))
 	static bool FIsNegative(const float& Data);
 
-	// return true when given scalar(int) is negative by LeftMost bit check
+	/** return true when given int is negative by LeftMost bit check */
 	UFUNCTION(BlueprintPure, Category = "SharkuBPFLibrary|Math", meta = (DisplayName = "IsNegative(int)"))
-	static bool IsNegative(const int& Data);
+	static bool IsNegative(const int32& Data);
 
 };

@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 #include "SharkuBPFLibrary.h"
 #include "Engine/Engine.h"
@@ -52,6 +52,11 @@ bool USharkuBPFLibrary::AttachOnSurface(UObject* WorldContextObject, USceneCompo
 bool USharkuBPFLibrary::GetBit(const int32& Bitmask, uint8 Index)
 {
 	return (Bitmask & (1 << Index)) != 0;
+}
+
+FString USharkuBPFLibrary::GetBitSet(const int32& Bitset)
+{
+	return FString(std::bitset<32>(Bitset).to_string().c_str());
 }
 
 void USharkuBPFLibrary::SetBitOn(UPARAM(ref) int32& Bitmask, uint8 Index)
@@ -175,6 +180,7 @@ bool USharkuBPFLibrary::CalcVarWithFlowCheck(UPARAM(ref) int& Var, const int& Mo
 
 bool USharkuBPFLibrary::FIsNegative(const float& Data)
 {
+	// 실수를 비트 변경 없이 그대로 int값으로 변환
 	union FloatInt
 	{
 		float input;
@@ -186,7 +192,8 @@ bool USharkuBPFLibrary::FIsNegative(const float& Data)
 	return std::bitset<32>(temp.output).test(31);
 }
 
-bool USharkuBPFLibrary::IsNegative(const int& Data)
+bool USharkuBPFLibrary::IsNegative(const int32& Data)
 {
-	return std::bitset<32>(Data).test(31);
+	return (Data & (1 << 31)) != 0;
+	//return std::bitset<32>(Data).test(31);
 }

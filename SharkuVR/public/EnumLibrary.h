@@ -1,7 +1,7 @@
-#pragma once
+ï»¿#pragma once
 
 /**
-ÀÚÁÖ »ç¿ëµÇ´Â »ç¿ëÀÚ ÁöÁ¤ ¿­°ÅÇüµéÀ» ¸ğ¾ÆµÎ´Â Çì´õ ÆÄÀÏÀÔ´Ï´Ù.
+ìì£¼ ì‚¬ìš©ë˜ëŠ” ì‚¬ìš©ì ì§€ì • ì—´ê±°í˜•ë“¤ì„ ëª¨ì•„ë‘ëŠ” í—¤ë” íŒŒì¼ì…ë‹ˆë‹¤.
 *
 */
 
@@ -18,7 +18,7 @@ enum class EItemType : uint8
 UENUM(BlueprintType)
 enum class EHandMotionState : uint8
 {
-	/// bCanMotionÀÌ ÄÑÁ®ÀÖ¾î¾ß ÀÛµ¿
+	/// bCanMotionì´ ì¼œì ¸ìˆì–´ì•¼ ì‘ë™
 	HS_GRAB			UMETA(DisplayName = "Grab"),
 	HS_THUMBUP		UMETA(DisplayName = "ThumbUp"),
 	HS_HANDGUN		UMETA(DisplayName = "HandGun"),
@@ -26,7 +26,7 @@ enum class EHandMotionState : uint8
 	HS_PRAY			UMETA(DisplayName = "Pray"),
 	HS_FUCK			UMETA(DisplayName = "Fuck"),
 	HS_SCISSOR		UMETA(DisplayName = "Scissors"),
-	/// bCanMotionÀÌ ÄÑÁ®ÀÖÁö ¾Ê¾Æ¾ß ÀÛµ¿
+	/// bCanMotionì´ ì¼œì ¸ìˆì§€ ì•Šì•„ì•¼ ì‘ë™
 	HS_OPEN			UMETA(DisplayName = "Open"),
 	HS_CANGRAB		UMETA(DisplayName = "CanGrab"),
 	HS_HALFGRIP		UMETA(DisplayName = "HalfGrip"),
@@ -51,24 +51,24 @@ enum class EGrabType : uint8
 UENUM(BlueprintType, meta = (Bitflags))
 enum class EMissionType : uint8
 {
-	// °íÁ¤Çü
+	// ê³ ì •í˜•
 	MT_STATIC		UMETA(DisplayName = "Static"),
-	// ÀÌµ¿Çü
+	// ì´ë™í˜•
 	MT_MOVABLE		UMETA(DisplayName = "Movavle"),
-	// Ã¼·Â Àç»ıÇü
+	// ì²´ë ¥ ì¬ìƒí˜•
 	MT_REGEN		UMETA(DisplayName = "Regenerative"),
-	// ½Ã¾ß Á¦ÇÑÇü
+	// ì‹œì•¼ ì œí•œí˜•
 	MT_DARK			UMETA(DisplayName = "Dark"),
-	// Åõ¸íÇü
+	// íˆ¬ëª…í˜•
 	MT_TRANS		UMETA(DisplayName = "Transparency"),
-	// µ¹ÁøÇü
+	// ëŒì§„í˜•
 	MT_CHARGE		UMETA(DisplayName = "Charge"),
-	// ÃÖ´ë °¹¼ö
+	// ìµœëŒ€ ê°¯ìˆ˜
 	MT_MAX			UMETA(Hidden)
 };
 
 /**
-* »ç¿ëÇÒ ¼ö ÀÖÀ» ¸¸Å­ÀÇ ¿¡³ÊÁö°¡ ÀÖ´ÂÁö ¿©ºÎ
+* ì‚¬ìš©í•  ìˆ˜ ìˆì„ ë§Œí¼ì˜ ì—ë„ˆì§€ê°€ ìˆëŠ”ì§€ ì—¬ë¶€
 */
 UENUM(BlueprintType)
 enum class EEnergyConsumeResult : uint8
@@ -78,7 +78,7 @@ enum class EEnergyConsumeResult : uint8
 };
 
 /**
-* scalar °ª¿¡ ¼öÄ¡¸¦ ´õÇÏ°Å³ª »© ÁÙ °æ¿ì °á°ú°ªÀÌ Á¤»ó ¹üÀ§ ³»ÀÎÁö(0) ¿ÜºÎÀÎÁö(1,2) ¿©ºÎ
+* scalar ê°’ì— ìˆ˜ì¹˜ë¥¼ ë”í•˜ê±°ë‚˜ ë¹¼ ì¤„ ê²½ìš° ê²°ê³¼ê°’ì´ ì •ìƒ ë²”ìœ„ ë‚´ì¸ì§€(0) ì™¸ë¶€ì¸ì§€(1,2) ì—¬ë¶€
 */
 UENUM(BlueprintType)
 enum class ECheckFlowResult : uint8
